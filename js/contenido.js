@@ -14,7 +14,7 @@ const contenido = {
     { edad: "12 años", titulo: "Un nuevo capítulo", texto: "La niña iba creciendo y comenzaba a aparecer la persona que eres hoy.", foto: "" },
     { edad: "15 años", titulo: "Aprendiendo quién eres", texto: "Nuevos caminos, nuevas experiencias y recuerdos que se quedaron para siempre.", foto: "" },
     { edad: "18 años", titulo: "Ya no tan niña", texto: "Llegó una etapa nueva. Y con ella, muchas cosas que todavía estaban por comenzar.", foto: "" },
-    { edad: "20 años", titulo: "Y aquí estás", texto: "Veinte años de historias, personas, aprendizajes y momentos que hicieron de ti quien eres.", foto: "fotos/ninez/actual.jpeg" }
+    { edad: "20 años", titulo: "Y aquí estás", texto: "Veinte años de historias, personas, aprendizajes y momentos que hicieron de ti quien eres.", foto: "fotos/ninez/Actual.jpeg" }
   ],
 
   familia: [
