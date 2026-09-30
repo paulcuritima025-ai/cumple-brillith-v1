@@ -1236,3 +1236,67 @@ footer {
   max-height: 600px;
   object-fit: contain;
 }
+
+/* =========================================
+   FLORES FAVORITAS
+========================================= */
+
+.flowers-section {
+  padding-top: 100px;
+  padding-bottom: 120px;
+}
+
+.flowers-image {
+  width: min(1100px, 92%);
+  margin: 50px auto 35px;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(120, 70, 100, 0.12);
+}
+
+.flowers-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.flowers-message {
+  width: min(800px, 90%);
+  margin: 35px auto 0;
+  text-align: center;
+}
+
+.flowers-message p {
+  margin: 12px 0;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.flowers-message strong {
+  font-weight: 600;
+}
+
+/* Móvil */
+
+@media (max-width: 700px) {
+
+  .flowers-section {
+    padding-top: 70px;
+    padding-bottom: 80px;
+  }
+
+  .flowers-image {
+    width: 94%;
+    margin-top: 35px;
+    border-radius: 18px;
+  }
+
+  .flowers-message {
+    width: 88%;
+  }
+
+  .flowers-message p {
+    font-size: 0.95rem;
+  }
+}
