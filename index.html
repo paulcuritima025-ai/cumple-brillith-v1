@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1e1029">
+  <meta name="description" content="Un pequeño recuerdo hecho con cariño.">
+  <title>Para Brillith ✦</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/estilos.css">
+
+  <style>
+    /* =========================================
+       CONTROL DE MÚSICA
+       ========================================= */
+
+    .music-control {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 9999;
+
+      display: flex;
+      align-items: center;
+      gap: 9px;
+
+      padding: 10px 15px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 999px;
+
+      background: rgba(25, 14, 34, 0.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+
+      color: #fff;
+      font-family: "DM Sans", sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+
+      cursor: pointer;
+
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+
+      transition:
+        opacity 0.5s ease,
+        visibility 0.5s ease,
+        transform 0.5s ease,
+        background 0.3s ease;
+    }
+
+    body.entered .music-control {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .music-control:hover {
+      background: rgba(40, 22, 52, 0.88);
+    }
+
+    .music-icon {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .music-label {
+      white-space: nowrap;
+    }
+
+    .music-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 14px;
+    }
+
+    .music-bars span {
+      width: 2px;
+      height: 6px;
+      border-radius: 3px;
+      background: currentColor;
+      animation: musicBar 0.9s ease-in-out infinite alternate;
+    }
+
+    .music-bars span:nth-child(2) {
+      height: 11px;
+      animation-delay: 0.15s;
+    }
+
+    .music-bars span:nth-child(3) {
+      height: 8px;
+      animation-delay: 0.3s;
+    }
+
+    .music-bars span:nth-child(4) {
+      height: 13px;
+      animation-delay: 0.45s;
+    }
+
+    .music-control.paused .music-bars span {
+      animation-play-state: paused;
+      height: 5px;
+    }
+
+    @keyframes musicBar {
+      from {
+        transform: scaleY(0.55);
+      }
+
+      to {
+        transform: scaleY(1);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .music-control {
+        right: 14px;
+        bottom: 14px;
+        padding: 9px 12px;
+      }
+
+      .music-label {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================
+       PANTALLA DE ENTRADA
+       ========================================= -->
+
+  <div id="intro" class="intro">
+    <div class="intro-stars"></div>
+
+    <div class="intro-card">
+      <span class="eyebrow">UN PEQUEÑO REGALO</span>
+
+      <h1>
+        Para <span data-name>Brillith</span>
+      </h1>
+
+      <p>
+        Hay recuerdos que merecen tener un lugar donde quedarse.
+      </p>
+
+      <button id="enterBtn" class="btn btn-primary">
+        Entrar ✦
+      </button>
+
+      <small>
+        Hecho especialmente para ti
+      </small>
+    </div>
+  </div>
+
+
+  <!-- =========================================
+       MÚSICA DE FONDO
+       ========================================= -->
+
+  <audio id="backgroundMusic" src="audio/cancion.mp3" preload="auto" loop></audio>
+
+  <button id="musicControl" class="music-control" type="button" aria-label="Pausar música" aria-pressed="true">
+    <span class="music-icon">♫</span>
+
+    <span class="music-label">
+      Música
+    </span>
+
+    <span class="music-bars" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+  </button>
+
+
+  <!-- =========================================
+       SITIO PRINCIPAL
+       ========================================= -->
+
+  <div id="site" class="site" aria-hidden="true">
+
+    <!-- =====================================
+         INICIO
+         ===================================== -->
+
+    <header class="hero" id="inicio">
+
+      <div class="hero-glow"></div>
+      <div class="moon"></div>
+
+      <div class="hero-content reveal">
+
+        <span class="eyebrow">
+          31 · OCTUBRE · 2026
+        </span>
+
+        <p class="pretitle">
+          Hoy celebramos a
+        </p>
+
+        <h1 data-name>
+          Brillith
+        </h1>
+
+        <p class="hero-subtitle">
+          Una historia que merece ser recordada.
+        </p>
+
+
+        <!-- CUENTA REGRESIVA -->
+
+        <div id="countdown" class="countdown" aria-label="Cuenta regresiva">
+
+          <div>
+            <strong id="days">00</strong>
+            <span>días</span>
+          </div>
+
+          <div>
+            <strong id="hours">00</strong>
+            <span>horas</span>
+          </div>
+
+          <div>
+            <strong id="minutes">00</strong>
+            <span>minutos</span>
+          </div>
+
+          <div>
+            <strong id="seconds">00</strong>
+            <span>segundos</span>
+          </div>
+
+        </div>
+
+
+        <!-- MENSAJE DE CUMPLEAÑOS -->
+
+        <div id="birthdayMessage" class="birthday-message" hidden>
+          <span>✦</span>
+
+          <h2>
+            ¡Feliz cumpleaños número 20!
+          </h2>
+
+          <p>
+            Que este nuevo capítulo sea tan bonito como todo
+            lo que todavía te queda por vivir.
+          </p>
+
+          <span>✦</span>
+        </div>
+
+
+        <!-- PASTEL -->
+
+        <div class="cake-wrap" aria-label="Pastel de cumpleaños">
+
+          <div class="cake">
+
+            <div class="candles" id="candles"></div>
+
+            <div class="cake-top"></div>
+            <div class="cake-middle"></div>
+            <div class="cake-bottom"></div>
+            <div class="cake-plate"></div>
+
+          </div>
+
+          <p class="tap-hint">
+            Toca las velas ✦
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- INDICADOR DE SCROLL -->
+
+      <a class="scroll-cue" href="#ninez">
+        desliza
+        <span>↓</span>
+      </a>
+
+    </header>
+
+
+    <!-- =====================================
+         CONTENIDO
+         ===================================== -->
+
+    <main>
+
+
+      <!-- ===================================
+           01 · NIÑEZ
+           =================================== -->
+
+      <section class="section story-section" id="ninez">
+
+        <div class="section-heading reveal">
+
+          <span class="section-number">
+            01
+          </span>
+
+          <p class="eyebrow">
+            ANTES DE TODO
+          </p>
+
+          <h2>
+            La niña que<br>
+            <em>se convirtió en ella.</em>
+          </h2>
+
+          <p>
+            Antes de conocerte, ya existía una historia.
+            Esta es una pequeña mirada a todo lo que te
+            trajo hasta aquí.
+          </p>
+
+        </div>
+
+        <div id="timeline" class="timeline"></div>
+
+      </section>
+
+
+      <!-- ===================================
+           02 · FAMILIA
+           =================================== -->
+
+      <section class="section family-section" id="familia">
+
+        <div class="section-heading reveal">
+
+          <span class="section-number">
+            02
+          </span>
+
+          <p class="eyebrow">
+            LAS PERSONAS QUE TE QUIEREN
+          </p>
+
+          <h2>
+            Tu <em>familia.</em>
+          </h2>
+
+          <p>
+            Porque una parte de lo que eres también vive
+            en las personas que han estado contigo desde
+            el principio.
+          </p>
+
+        </div>
+
+        <div id="familyGrid" class="family-grid"></div>
+
+      </section>
+
+
+      <!-- ===================================
+           03 · NOSOTROS
+           =================================== -->
+
+      <section class="section us-section" id="nosotros">
+
+        <div class="section-heading reveal">
+
+          <span class="section-number">
+            03
+          </span>
+
+          <p class="eyebrow">
+            Y ENTONCES APARECIMOS NOSOTROS
+          </p>
+
+          <h2>
+            Tú <em>y yo.</em>
+          </h2>
+
+          <p>
+            De todos los caminos posibles, hubo uno que
+            nos hizo coincidir.
+          </p>
+
+        </div>
+
+
+        <div class="together-counter reveal">
+
+          <span>
+            Y desde aquel día han pasado
+          </span>
+
+          <strong id="daysTogether">
+            000
+          </strong>
+
+          <span>
+            días de esta historia.
+          </span>
+
+        </div>
+
+
+        <div id="moments" class="moments"></div>
+
+      </section>
+
+
+      <!-- ===================================
+           04 · CARTA
+           =================================== -->
+
+      <section class="section letter-section" id="carta">
+
+        <div class="section-heading reveal">
+
+          <span class="section-number">
+            04
+          </span>
+
+          <p class="eyebrow">
+            HAY ALGO QUE QUIERO DECIRTE
+          </p>
+
+          <h2>
+            Una carta<br>
+            <em>para ti.</em>
+          </h2>
+
+        </div>
+
+
+        <div class="envelope-area reveal">
+
+          <button id="envelope" class="envelope" aria-label="Abrir carta">
+
+            <span class="envelope-back"></span>
+
+            <span class="letter-paper">
+
+              <span>
+                Para ti,
+              </span>
+
+              <strong>
+                Brillith
+              </strong>
+
+              <small>
+                toca para abrir
+              </small>
+
+            </span>
+
+            <span class="envelope-flap"></span>
+            <span class="envelope-front"></span>
+
+          </button>
+
+        </div>
+
+
+        <article id="letter" class="letter" hidden>
+
+          <div class="letter-inner">
+
+            <p class="letter-date">
+              31 de octubre, 2026
+            </p>
+
+            <div id="letterText"></div>
+
+            <p class="letter-sign">
+              Con todo mi cariño,<br>
+              <strong>Paul (Polsito, el amor de tu vida, sisisisi)</strong> ✦
+            </p>
+
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- ===================================
+           SORPRESA FINAL
+           =================================== -->
+
+      <section class="final-section" id="sorpresa">
+
+        <div class="final-stars"></div>
+
+        <div class="final-content reveal">
+
+          <span class="eyebrow">
+            Y TODAVÍA FALTA ALGO
+          </span>
+
+          <h2>
+            Una última<br>
+            <em>sorpresa.</em>
+          </h2>
+
+          <p>
+            Porque un cumpleaños tan especial no podía
+            terminar simplemente aquí.
+          </p>
+
+          <button id="surpriseBtn" class="btn btn-light">
+            Abrir sorpresa ✦
+          </button>
+
+
+          <div id="surpriseReveal" class="surprise-reveal" hidden>
+
+            <div class="heart">
+              ♥
+            </div>
+
+            <h3>
+              Que nunca olvides algo...
+            </h3>
+
+            <p id="surpriseText"></p>
+
+            <span>
+              Aquí acaba la pagina.<br>
+              Pero no de nuestra historia, ni la tuya, eres la mejor mi amor, feliz cumpleaños.
+            </span>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <!-- =====================================
+         FOOTER
+         ===================================== -->
+
+    <footer>
+
+      <span>
+        Hecho con cariño, para
+        <span data-name>Brillith</span>
+        ✦
+      </span>
+
+      <span>
+        2026
+      </span>
+
+    </footer>
+
+  </div>
+
+
+  <!-- CONFETI -->
+
+  <canvas id="confetti"></canvas>
+
+
+  <!-- SCRIPTS -->
+
+  <script src="js/contenido.js"></script>
+  <script src="js/app.js"></script>
+
+
+  <!-- =========================================
+       MÚSICA
+       ========================================= -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const enterBtn = document.getElementById("enterBtn");
+      const music = document.getElementById("backgroundMusic");
+      const musicControl = document.getElementById("musicControl");
+
+      if (!enterBtn || !music || !musicControl) {
+        return;
+      }
+
+
+      /*
+       * La música comienza cuando ella pulsa
+       * "Entrar", porque esa acción del usuario
+       * permite al navegador reproducir audio.
+       */
+
+      enterBtn.addEventListener("click", () => {
+
+        music.volume = 0.35;
+
+        const playPromise = music.play();
+
+        if (playPromise !== undefined) {
+
+          playPromise
+            .then(() => {
+
+              musicControl.classList.remove("paused");
+
+              musicControl.setAttribute(
+                "aria-label",
+                "Pausar música"
+              );
+
+              musicControl.setAttribute(
+                "aria-pressed",
+                "true"
+              );
+
+            })
+            .catch(() => {
+
+              /*
+               * Si el navegador bloquea el audio,
+               * el botón seguirá disponible para
+               * que pueda iniciarlo manualmente.
+               */
+
+              musicControl.classList.add("paused");
+
+            });
+
+        }
+
+      });
+
+
+      /*
+       * Botón para pausar / continuar.
+       */
+
+      musicControl.addEventListener("click", () => {
+
+        if (music.paused) {
+
+          music.play()
+            .then(() => {
+
+              musicControl.classList.remove("paused");
+
+              musicControl.setAttribute(
+                "aria-label",
+                "Pausar música"
+              );
+
+              musicControl.setAttribute(
+                "aria-pressed",
+                "true"
+              );
+
+            })
+            .catch(() => { });
+
+        } else {
+
+          music.pause();
+
+          musicControl.classList.add("paused");
+
+          musicControl.setAttribute(
+            "aria-label",
+            "Reproducir música"
+          );
+
+          musicControl.setAttribute(
+            "aria-pressed",
+            "false"
+          );
+
+        }
+
+      });
+
+    });
+  </script>
+
+</body>
+
+</html>
