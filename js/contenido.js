@@ -65,7 +65,7 @@ const contenido = {
     "Hoy cumples 20 años y deseo de todo corazón que la vida te regale muchísimas razones para sonreír. Que nunca te falten las fuerzas para perseguir tus sueños, el valor para superar los momentos difíciles y la confianza para recordar lo increíble que eres. Quiero verte crecer, cumplir tus metas y celebrar cada uno de tus logros, porque tu felicidad también se ha convertido en una de las cosas que más me importan.",
     "Quiero que sepas que admiro muchísimo a la mujer que eres y todo lo bonito que llevas dentro. Me hace feliz compartir mis días contigo, crear recuerdos a tu lado y pensar en todas las experiencias que todavía nos quedan por vivir. No sé exactamente qué nos tiene preparado el futuro, pero sí sé que me encanta tenerte en mi presente y que, si pudiera elegir de nuevo, me seguiría quedando contigo.",
     "Ojalá pudiera guardar en una cajita cada una de tus sonrisas, tus abrazos, tus besos y esos momentos en los que te veo feliz, para volver a ellos cada vez que te extrañe. Y si algún día sientes que las cosas no van bien, quiero que recuerdes que tienes a un chico que te quiere muchísimo, que cree en ti y que desea verte alcanzar cada uno de tus sueños. No tienes que ser fuerte todo el tiempo; también quiero estar para ti cuando necesites un abrazo, tranquilidad o simplemente alguien que te escuche.",
-    "Esta página es solo un pequeño detalle, pero detrás de ella hay tiempo, ilusión y todo mi cariño. Quería hacer algo que fuera tuyo, algo que pudieras guardar y volver a mirar con una sonrisa. Porque hoy no solo celebro tus 21 años; también celebro tu existencia, la persona tan bonita que eres y la suerte que tengo de compartir esta historia contigo.",
+    "Esta página es solo un pequeño detalle, pero detrás de ella hay tiempo, ilusión y todo mi cariño. Quería hacer algo que fuera tuyo, algo que pudieras guardar y volver a mirar con una sonrisa. Porque hoy no solo celebro tus 20 años; también celebro tu existencia, la persona tan bonita que eres y la suerte que tengo de compartir esta historia contigo.",
     "Feliz cumpleaños, mi niña hermosa. ❤️ Deseo que este nuevo año de vida esté lleno de momentos inolvidables, sueños cumplidos, abrazos que te hagan sentir en casa y razones para sonreír incluso en los días más difíciles. Nunca dejes de ser esa chica tan especial que llegó a mi vida y que, sin darse cuenta, se ganó un lugar enorme en mi corazón. Y ojalá que, cuando vuelvas a leer estas palabras dentro de muchos años, sonrías al recordar que hubo un chico que quiso hacerte sentir amada, importante y especial en un día como hoy.",
     "Te amo muchísimo, mi niña. Feliz cumpleaños, mi amor. ❤️"
   ],
@@ -74,7 +74,7 @@ const contenido = {
   // Sube tus 2 fotos a fotos/entradas/ y ajusta aquí los nombres si son distintos.
   entradas: {
     clave: "31100621",
-    mensaje: "Estas son nuestras entradas. Te invito al teatro, mi amor.",
+    mensaje: "Estas se suponen que eran las entradas al teatro, pero como ves no llegue a conseguirlas, lo siento mucho, pero no ando con mucho dinero y me duele no poder darte algo más,disculpame mi amor :´(.",
     fotos: [
       "fotos/entradas/entrada1.jpg",
       "fotos/entradas/entrada2.jpg"
